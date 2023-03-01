@@ -3,7 +3,8 @@
         xmlns:vm="using:LoudnessMeter.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+        Width="600" Height="400"
         x:Class="LoudnessMeter.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="LoudnessMeter">
@@ -12,6 +13,52 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <Grid RowDefinitions="Auto, *, Auto">
+        
+        <!-- Title bar -->
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto"
+              Background="Orange"
+              Height="40">
+            <Rectangle Grid.Column="0" Fill="Red" Width="30"></Rectangle>
+            <Rectangle Grid.Column="1" Fill="Blue" Width="30"></Rectangle>
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Label FontWeight="Black">AVALONIA</Label>
+                <Label>LOUDNESS METER</Label>
+            </StackPanel>
+            <Rectangle Grid.Column="3" Fill="Green" Width="30"></Rectangle>
+            <Rectangle Grid.Column="4" Fill="Yellow" Width="30"></Rectangle>
+        </Grid>
+        
+        <!-- Main area -->
+        <Grid Grid.Row="1"
+              Grid.ColumnDefinitions="Auto, Auto, *"
+              Background="#333">
+            
+            <!-- Volume bar -->
+            <Rectangle Grid.Column="0" Fill="Purple" Width="120"/>
+            
+            <!-- Details Panel -->
+            <Rectangle Grid.Column="1" Fill="#ccc" Width="140"/>
+            
+            <!-- Graph -->
+            <Rectangle Grid.Column="2" Fill="Black"/>
+            
+        </Grid>
+        
+        <!-- Bottom bar -->
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, Auto, *, Auto, Auto, Auto ,Auto ,Auto"
+              Margin="8">
+            <Button Grid.Column="0" Margin="0 0 8 0">Stereo</Button>
+            <Button Grid.Column="1">YouTube</Button>
+            <Button Grid.Column="3" Margin="0 0 8 0">10 sec</Button>
+            <Button Grid.Column="4" Margin="0 0 8 0">CONTINUOUS</Button>
+            <Rectangle Grid.Column="5" Fill="Orange" Width="30" Margin="0 0 8 0"></Rectangle>
+            <Rectangle Grid.Column="6" Fill="Red" Width="30"></Rectangle>
+        </Grid>
+        
+    </Grid>
+    
 </Window>
