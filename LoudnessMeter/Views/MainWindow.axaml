@@ -3,10 +3,10 @@
         xmlns:vm="using:LoudnessMeter.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
-        Width="800" Height="600"
+        mc:Ignorable="d" d:DesignWidth="1048" d:DesignHeight="630"
+        Width="1048" Height="630"
         x:Class="LoudnessMeter.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/Images/avalonia-logo.ico"
         Title="LoudnessMeter">
 
     <Design.DataContext>
@@ -17,10 +17,35 @@
         
         <!-- Title bar -->
         <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto"
-              Background="Orange"
-              Height="40">
-            <Rectangle Grid.Column="0" Fill="Red" Width="30"></Rectangle>
-            <Rectangle Grid.Column="1" Fill="Blue" Width="30"></Rectangle>
+              Background="#e5e5e5"
+              Height="60">
+            
+            <Grid.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+                <Style Selector="Button /template/ ContentPresenter">
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"></TransformOperationsTransition>
+                        </Transitions>
+                    </Setter>
+                </Style>
+                <Style Selector="Button:pointerover /template/ ContentPresenter">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                    <Setter Property="RenderTransform" Value="scale(1.11)"></Setter>
+                    <Setter Property="Opacity" Value="0.6"></Setter>
+                </Style>
+            </Grid.Styles>
+            
+            <Button Grid.Column="0" Width="50">
+                <Image Source="{SvgImage /Assets/Images/Monitor_icon.svg}"></Image>
+            </Button>
+            
+            <Button Grid.Column="1" Width="50">
+                <Image Source="{SvgImage /Assets/Images/Lock_icon.svg}"></Image>
+            </Button>
+            
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
@@ -28,13 +53,21 @@
                 <Label FontWeight="Black">AVALONIA</Label>
                 <Label>LOUDNESS METER</Label>
             </StackPanel>
-            <Rectangle Grid.Column="3" Fill="Green" Width="30"></Rectangle>
-            <Rectangle Grid.Column="4" Fill="Yellow" Width="30"></Rectangle>
+            
+            <Button Grid.Column="3" Width="50">
+                <Image Source="{SvgImage /Assets/Images/Export_icon.svg}"></Image>
+            </Button>
+            
+            <Button Grid.Column="4" Width="50">
+                <Image Source="{SvgImage /Assets/Images/Settings_icon.svg}"></Image>
+            </Button>
+            
+            
         </Grid>
         
         <!-- Main area -->
         <Grid Grid.Row="1"
-              Grid.ColumnDefinitions="Auto, Auto, *"
+              ColumnDefinitions="Auto, Auto, *"
               Background="#1a1c20">
             
             <!-- Volume bar -->
@@ -77,9 +110,6 @@
                         <Rectangle Grid.Row="0" Margin="0 8 0 -8" Fill="#b05c4e" Width="20"></Rectangle>
                         <Rectangle Grid.Row="1" Margin="0 8 0 0" Fill="White" Width="20"></Rectangle>
                         
-                        <Canvas >
-                            
-                        </Canvas>
                     </Grid>
                     
                     <Label Grid.Column="2" Grid.Row="0">—</Label>
