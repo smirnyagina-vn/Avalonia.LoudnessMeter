@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:LoudnessMeter">
+    <Design.PreviewWith>
+        <controls:LargeLabelControl />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|LargeLabelControl">
+        <!-- Set Defaults -->
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="{DynamicResource MidBlueBrush}"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}">
+                    <StackPanel>
+                        
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="21" Content="-31.3 LUFS"/>
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="11" Content="SHORT TERM"/>
+                       
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

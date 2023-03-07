@@ -3,6 +3,7 @@
         xmlns:vm="using:LoudnessMeter.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:LoudnessMeter"
         mc:Ignorable="d" d:DesignWidth="1048" d:DesignHeight="630"
         Width="1048" Height="630"
         x:Class="LoudnessMeter.Views.MainWindow"
@@ -17,12 +18,16 @@
         
         <!-- Title bar -->
         <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto"
-              Background="#e5e5e5"
+              Background="{DynamicResource MidGreyBrush}"
               Height="60">
             
             <Grid.Styles>
                 <Style Selector="Button">
                     <Setter Property="Background" Value="Transparent"></Setter>
+                    <Setter Property="Width" Value="40"></Setter>
+                </Style>
+                <Style Selector="Button Image">
+                    <Setter Property="Width" Value="30"></Setter>
                 </Style>
                 <Style Selector="Button /template/ ContentPresenter">
                     <Setter Property="Transitions">
@@ -38,12 +43,12 @@
                 </Style>
             </Grid.Styles>
             
-            <Button Grid.Column="0" Width="50">
-                <Image Source="{SvgImage /Assets/Images/Monitor_icon.svg}"></Image>
+            <Button Grid.Column="0">
+                <Image Source="{SvgImage /Assets/Images/Monitor.svg}"></Image>
             </Button>
             
-            <Button Grid.Column="1" Width="50">
-                <Image Source="{SvgImage /Assets/Images/Lock_icon.svg}"></Image>
+            <Button Grid.Column="1">
+                <Image Source="{SvgImage /Assets/Images/Lock.svg}"></Image>
             </Button>
             
             <StackPanel Grid.Column="2"
@@ -54,21 +59,20 @@
                 <Label>LOUDNESS METER</Label>
             </StackPanel>
             
-            <Button Grid.Column="3" Width="50">
-                <Image Source="{SvgImage /Assets/Images/Export_icon.svg}"></Image>
+            <Button Grid.Column="3">
+                <Image Source="{SvgImage /Assets/Images/Export.svg}"></Image>
             </Button>
             
-            <Button Grid.Column="4" Width="50">
-                <Image Source="{SvgImage /Assets/Images/Settings_icon.svg}"></Image>
+            <Button Grid.Column="4">
+                <Image Source="{SvgImage /Assets/Images/Cog.svg}"></Image>
             </Button>
-            
             
         </Grid>
         
         <!-- Main area -->
         <Grid Grid.Row="1"
               ColumnDefinitions="Auto, Auto, *"
-              Background="#1a1c20">
+              Background="{DynamicResource DarkBlueBrush}">
             
             <!-- Volume bar -->
             <Grid Grid.Column="0" 
@@ -152,16 +156,26 @@
                             <Setter Property="CornerRadius" Value="20"></Setter>
                             <Setter Property="Padding" Value="7 2"></Setter>
                         </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#98acd0"></Setter>
+                            <Setter Property="TextBlock.Foreground" Value="white"></Setter>
+                        </Style>
                     </StackPanel.Styles>
                     
-                    <Button Margin="0 0 20 0">A</Button>
+                    <Button CornerRadius="30" Width="30" Height="30" Padding="3" Margin="0 0 20 0">
+                        <Image Margin="5 0 2 0" Source="{SvgImage /Assets/Images/DoubleArrow.svg}"></Image>
+                    </Button>
                     <Button>INT-LRA</Button>
                 </StackPanel>
                 
             </Grid>
             
             <!-- Details Panel -->
-            <Rectangle Grid.Column="1" Fill="#ccc" Width="140"/>
+            <StackPanel Grid.Column="1" Width="170" Margin=" 0 15 10 15">
+                    <controls:LargeLabelControl></controls:LargeLabelControl>
+                    <controls:LargeLabelControl></controls:LargeLabelControl>
+                    <controls:LargeLabelControl></controls:LargeLabelControl>
+            </StackPanel>
             
             <!-- Graph -->
             <Rectangle Grid.Column="2" Fill="Black"/>
