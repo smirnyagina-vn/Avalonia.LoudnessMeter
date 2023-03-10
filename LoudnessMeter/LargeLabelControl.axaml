@@ -2,7 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:LoudnessMeter">
     <Design.PreviewWith>
-        <controls:LargeLabelControl />
+        <StackPanel>
+            <controls:LargeLabelControl />
+            <controls:LargeLabelControl Classes="button" />
+        </StackPanel>
     </Design.PreviewWith>
 
     <Style Selector="controls|LargeLabelControl">
@@ -11,11 +14,29 @@
         <Setter Property="Background" Value="{DynamicResource MidBlueBrush}"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <Border Padding="15 7" Background="{TemplateBinding Background}">
                     <StackPanel>
                         
-                        <Label HorizontalAlignment="Center" Padding="0" FontSize="21" Content="-31.3 LUFS"/>
-                        <Label HorizontalAlignment="Center" Padding="0" FontSize="11" Content="SHORT TERM"/>
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="21" Content="{TemplateBinding LargeText}"/>
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="11" Content="{TemplateBinding SmallText}"/>
+                       
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|LargeLabelControl.button">
+        <!-- Set Defaults -->
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="{DynamicResource MidBlueBrush}"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="15 7" Background="{TemplateBinding Background}">
+                    <StackPanel>
+                        
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="21" Content="{TemplateBinding LargeText}"/>
+                        <Label HorizontalAlignment="Center" Padding="0" FontSize="11" Content="{TemplateBinding SmallText}"/>
                        
                     </StackPanel>
                 </Border>
