@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Avalonia.LoudnessMeter/App.axaml" value="Avalonia.LoudnessMeter.Desktop/Avalonia.LoudnessMeter.Desktop.csproj" />
+        <entry key="Avalonia.LoudnessMeter/Styles/AppDefaultStyles.axaml" value="Avalonia.LoudnessMeter.Desktop/Avalonia.LoudnessMeter.Desktop.csproj" />
+        <entry key="Avalonia.LoudnessMeter/Styles/LargeLabelControl.axaml" value="Avalonia.LoudnessMeter.Desktop/Avalonia.LoudnessMeter.Desktop.csproj" />
+        <entry key="Avalonia.LoudnessMeter/Views/MainView.axaml" value="Avalonia.LoudnessMeter.Desktop/Avalonia.LoudnessMeter.Desktop.csproj" />
+        <entry key="Avalonia.LoudnessMeter/Views/MainWindow.axaml" value="Avalonia.LoudnessMeter.Desktop/Avalonia.LoudnessMeter.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
