@@ -69,8 +69,8 @@
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <Label FontWeight="Black" Foreground="Black">AVALONIA</Label>
-                <Label Foreground="Black">LOUDNESS METER</Label>
+                <Label Content="{Binding BoldTitle}" FontWeight="Black" Foreground="Black"></Label>
+                <Label Content="{Binding RegularTitle}" Foreground="Black"/>
             </StackPanel>
             
             <Button Grid.Column="3">
