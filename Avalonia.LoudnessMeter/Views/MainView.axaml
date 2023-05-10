@@ -28,7 +28,19 @@
       </Style>
     </UserControl.Styles>
 
-    <Grid RowDefinitions="Auto, *, Auto">
+    <!-- Main Grid -->
+    <Grid Name="MainGrid" RowDefinitions="Auto, *, Auto" Background="White">
+        
+        <!-- Channel Configuration Popup -->
+        <Border Name="ChannelConfigurationPopup" 
+                Grid.RowSpan="3" 
+                Background="Red" 
+                ZIndex="1" 
+                Opacity="0.5" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom">
+          <Label Content="Test"></Label>
+        </Border>        
         
         <!-- Title bar -->
         <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto"
