@@ -30,10 +30,10 @@ public partial class MainView : UserControl
         var position = mChannelConfigButton.TranslatePoint(new Point(), mMainGrid) ??
                        throw new Exception("Cannot get TranslatePoint from ConfigurationButton");
         
-        mChannelConfigPopup.Margin = new Thickness(
-            position.X, 
-            0, 
-            0, 
-            mMainGrid.Bounds.Height - position.Y);
+        //mChannelConfigPopup.Margin = new Thickness(
+        //    position.X, 
+        //    0, 
+        //    0, 
+        //    mMainGrid.Bounds.Height - position.Y);
     }
 }
